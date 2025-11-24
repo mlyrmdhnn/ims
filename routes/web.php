@@ -12,7 +12,10 @@ Route::get('/coba2', function() {
     return view('dashboard.table');
 });
 
-Route::get('/' , [UserController::class, 'page']);
+Route::get('/back-office/login' , [UserController::class, 'page']);
+Route::get('/', function() {
+    return view('landingPage', ['title' => 'IMS']);
+});
 Route::post('/login', [UserController::class, 'login']);
 Route::post('/logout    ', [UserController::class, 'logout']);
 // Route::get('/dashboard')

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
     public function page() {
-        return view('auth.login');
+        return view('auth.login', ['title' => 'IMS Login']);
     }
 
     public function login(Request $request) {
@@ -51,6 +51,6 @@ class UserController extends Controller
 
     public function logout(Request $request) {
         $request->session()->forget('user');
-        return redirect('/');
+        return redirect('/back-office/login');
     }
 }

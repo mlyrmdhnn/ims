@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\warehouses;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -25,10 +26,12 @@ class UserFactory extends Factory
     {
         return [
             'name' => fake()->name(),
+            'email' => fake()->email(),
             'username' => fake()->userName(),
             'phone' => fake()->phoneNumber(),
             'role' => fake()->sentence(rand(1,1)),
             'password' => static::$password ??= Hash::make('password'),
+            'warehouse_id' => null,
             'remember_token' => Str::random(10),
         ];
     }

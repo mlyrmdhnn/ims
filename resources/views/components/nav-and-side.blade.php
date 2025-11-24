@@ -4,7 +4,7 @@
         <span class="icon"><i class="mdi mdi-forwardburger mdi-24px"></i></span>
       </a>
       <div class="navbar-item">
-        <div class="control"><input placeholder="Search everywhere..." class="input"></div>
+        {{-- <div class="control"><input placeholder="Search everywhere..." class="input"></div> --}}
       </div>
     </div>
     <div class="navbar-brand is-right">
@@ -70,18 +70,21 @@
             </a>
           </div>
         </div>
-        <a href="https://justboil.me/tailwind-admin-templates" class="navbar-item has-divider desktop-icon-only">
+        {{-- <a href="https://justboil.me/tailwind-admin-templates" class="navbar-item has-divider desktop-icon-only">
           <span class="icon"><i class="mdi mdi-help-circle-outline"></i></span>
           <span>About</span>
-        </a>
-        <a href="https://github.com/justboil/admin-one-tailwind" class="navbar-item has-divider desktop-icon-only">
+        </a> --}}
+        {{-- <a href="https://github.com/justboil/admin-one-tailwind" class="navbar-item has-divider desktop-icon-only">
           <span class="icon"><i class="mdi mdi-github-circle"></i></span>
           <span>GitHub</span>
-        </a>
-        <a title="Log out" class="navbar-item desktop-icon-only">
-          <span class="icon"><i class="mdi mdi-logout"></i></span>
-          <span>Log out</span>
-        </a>
+        </a> --}}
+        <form action="/logout" method="POST">
+            @csrf
+            <button title="Log out" class="navbar-item desktop-icon-only">
+                <span class="icon"><i class="mdi mdi-logout"></i></span>
+                <span>Log out</span>
+              </button>
+        </form>
       </div>
     </div>
   </nav>
