@@ -2,7 +2,7 @@
     $total = $totalNotif->where('isAproved', 'pending')->count();
 @endphp
 
-<nav id="navbar-main" class="navbar is-fixed-top">
+<nav id="navbar-main" class="navbar is-fixed-top warna-header text-white">
     <div class="navbar-brand">
       <a class="navbar-item mobile-aside-button">
         <span class="icon"><i class="mdi mdi-forwardburger mdi-24px"></i></span>
@@ -15,18 +15,16 @@
         <span class="icon"><i class="mdi mdi-dots-vertical mdi-24px"></i></span>
       </a>
     </div>
-    <div class="navbar-menu" id="navbar-menu">
+    <div class="navbar-menu warna-header" id="navbar-menu">
       <div class="navbar-end">
         <div class="navbar-item dropdown has-divider">
         </div>
         <div class="navbar-item dropdown has-divider has-user-avatar">
           <a class="navbar-link">
-            <div class="user-avatar">
-            </div>
             <div class="is-user-name"><span>{{ session('user.name') }}</span></div>
             <span class="icon"><i class="mdi mdi-chevron-down"></i></span>
           </a>
-          <div class="navbar-dropdown">
+          <div class="navbar-dropdown md:text-black">
             <a href="profile.html" class="navbar-item">
               <span class="icon"><i class="mdi mdi-account"></i></span>
               <span>My Profile</span>

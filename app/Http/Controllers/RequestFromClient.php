@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Notifications;
+use Illuminate\Support\Str;
+use App\Models\Transactions;
 use Illuminate\Http\Request;
+use App\Models\Notifications;
 
 class RequestFromClient extends Controller
 {
@@ -48,8 +50,29 @@ class RequestFromClient extends Controller
         return response()->json(['message' => 'Success']);
     }
 
+
+    // $notifId = '';
+    //     do {
+    //         $notifId = 'TRX-' . now()->format('Ymd') . '-' . Str::upper(Str::random(6));
+    //     } while (Notifications::where('notification_id', $notifId)->exists());
+
+
     public function requestDecision(Request $request) {
         $selectedRequest = Notifications::where('id', $request->id)->first();
+        $transactionNo = '';
+
+        do{
+            $transactionNo = 'TRX-' . now()->format('Ymd') . '-' . Str::upper(Str::random(12));
+        } while (Transactions::where('transaction_no', $transactionNo)->exists());
+
+        if($request->status == 'approved') {
+            Transactions::create([
+                'notif_id' => $selectedRequest->id,
+                'transaction_no' => $transactionNo,
+                'owner_transaction' => $selectedRequest->from
+            ]);
+        }
+
         $selectedRequest->update([
             'isAproved' => $request->status
         ]);

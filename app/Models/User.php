@@ -76,4 +76,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(item_history::class);
     }
+
+    public function transaction() :HasMany
+    {
+        return $this->hasMany(Transactions::class, 'transaction_no');
+    }
 }

@@ -17,12 +17,10 @@
         </div>
         <div class="navbar-item dropdown has-divider has-user-avatar">
           <a class="navbar-link">
-            <div class="user-avatar">
-            </div>
             <div class="is-user-name"><span>{{ session('user.name') }}</span></div>
             <span class="icon"><i class="mdi mdi-chevron-down"></i></span>
           </a>
-          <div class="navbar-dropdown text-black">
+          <div class="navbar-dropdown md:text-black">
             <a href="profile.html" class="navbar-item">
               <span class="icon"><i class="mdi mdi-account"></i></span>
               <span>My Profile</span>

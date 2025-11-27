@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use App\Models\Notifications;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -20,6 +21,7 @@ class TransactionsFactory extends Factory
         return [
             'notif_id' => Notifications::factory(),
             'transaction_no' => fake()->sentence(rand(1,4)),
+            'owner_transaction' => User::factory()
         ];
     }
 }

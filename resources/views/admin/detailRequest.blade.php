@@ -14,7 +14,6 @@
       </section>
 
      <x-nav-btn-link/>
-      {{-- <button class="button-red">ok</button> --}}
 
       <section class="section main-section grid grid-cols-1 gap-4">
         <div class="card">
@@ -63,9 +62,6 @@
         padding: 5px;
         border-radius: 5px;
     }
-    /* .bg-red{
-        background-color: red ;
-    } */
 </style>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 

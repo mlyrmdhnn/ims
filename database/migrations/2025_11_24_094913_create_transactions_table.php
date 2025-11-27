@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('notif_id')->nullable()->constrained('notifications', 'id')->onDelete('cascade');
             $table->string('transaction_no')->unique();
+            $table->foreignId('owner_transaction')->constrained('users', 'id')->onDelete('cascade');
             $table->timestamps();
         });
     }

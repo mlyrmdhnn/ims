@@ -20,7 +20,7 @@ class ClientRequestController extends Controller
 
         $notifId = '';
         do {
-            $notifId = 'TRX-' . now()->format('Ymd') . '-' . Str::upper(Str::random(6));
+            $notifId = 'RQS-' . now()->format('Ymd') . '-' . Str::upper(Str::random(12));
         } while (Notifications::where('notification_id', $notifId)->exists());
 
         $uuid = '';

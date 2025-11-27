@@ -10,9 +10,18 @@ class Transactions extends Model
 {
     /** @use HasFactory<\Database\Factories\TransactionsFactory> */
     use HasFactory;
+    protected $fillable = [
+        'notif_id',
+        'transaction_no',
+        'owner_transaction'
+    ];
 
     public function transaction() : BelongsTo
     {
         return $this->belongsTo(Notifications::class, 'notif_id');
+    }
+    public function ownerTransaction() :BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }
