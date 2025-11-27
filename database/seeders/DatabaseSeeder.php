@@ -43,12 +43,20 @@ class DatabaseSeeder extends Seeder
         Transactions::factory()->create();
 
         User::factory()->create([
-            'email' => 'mulyaranadhan@gmail.com',
             'username' => 'admin',
             'name' => 'mulya',
             'phone' => '081295096347',
             'role' => 'admin',
             'password' => Hash::make('password')
+        ]);
+
+        User::factory()->create([
+            'username' => 'mantap',
+            'name' => 'client',
+            'phone' => '081295096347',
+            'role' => 'client',
+            'password' => Hash::make('password'),
+            'isClient' => true
         ]);
 
 

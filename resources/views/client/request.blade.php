@@ -1,21 +1,18 @@
 @extends('layouts.mainLayout')
+
 @section('content')
 
 
 <div id="app">
 
-    <x-nav-and-side/>
+    <x-nav-and-side-client/>
 
     <section class="is-title-bar">
       <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
         <ul>
-          <li>Admin</li>
-          <li>Forms</li>
+          <li>CLient</li>
+          <li>Request</li>
         </ul>
-        <a href="https://justboil.me/" onclick="alert('Coming soon'); return false" target="_blank" class="button blue">
-          <span class="icon"><i class="mdi mdi-credit-card-outline"></i></span>
-          <span>Premium Demo</span>
-        </a>
       </div>
     </section>
 
@@ -24,7 +21,6 @@
         <h1 class="title">
           Forms
         </h1>
-        <button class="button light">Button</button>
       </div>
     </section>
 
@@ -37,68 +33,22 @@
             </p>
           </header>
           <div class="card-content">
-            <form method="get">
-              <div class="field">
-                <label class="label">From</label>
-                <div class="field-body">
-                  <div class="field">
-                    <div class="control icons-left">
-                      <input class="input" type="text" placeholder="Name">
-                      <span class="icon left"><i class="mdi mdi-account"></i></span>
-                    </div>
-                  </div>
-                  <div class="field">
-                    <div class="control icons-left icons-right">
-                      <input class="input" type="email" placeholder="Email" value="alex@smith.com">
-                      <span class="icon left"><i class="mdi mdi-mail"></i></span>
-                      <span class="icon right"><i class="mdi mdi-check"></i></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="field">
-                <div class="field-body">
-                  <div class="field">
-                    <div class="field addons">
-                      <div class="control">
-                        <input class="input" value="+44" size="3" readonly>
-                      </div>
-                      <div class="control expanded">
-                        <input class="input" type="tel" placeholder="Your phone number">
-                      </div>
-                    </div>
-                    <p class="help">Do not enter the first zero</p>
-                  </div>
-                </div>
-              </div>
-              <div class="field">
-                <label class="label">Department</label>
-                <div class="control">
-                  <div class="select">
-                    <select>
-                      <option>Business development</option>
-                      <option>Marketing</option>
-                      <option>Sales</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
+            <form method="POST" action="/client/request">
+                @csrf
               <hr>
               <div class="field">
-                <label class="label">Subject</label>
+                <label class="label">Title</label>
 
                 <div class="control">
-                  <input class="input" type="text" placeholder="e.g. Partnership opportunity">
+                  <input class="input" type="text" name="title" placeholder="Request Shipment: 150 Units of Item A">
                 </div>
-                <p class="help">
-                  This field is required
-                </p>
+
               </div>
 
               <div class="field">
-                <label class="label">Question</label>
+                <label class="label">Description</label>
                 <div class="control">
-                  <textarea class="textarea" placeholder="Explain how we can help you"></textarea>
+                  <textarea class="textarea" name="desc" placeholder="Explain the purpose of this request, destination warehouse, and any additional notes."></textarea>
                 </div>
               </div>
               <hr>
@@ -116,91 +66,6 @@
                 </div>
               </div>
             </form>
-          </div>
-        </div>
-
-        <div class="card">
-          <header class="card-header">
-            <p class="card-header-title">
-              <span class="icon"><i class="mdi mdi-ballot-outline"></i></span>
-              Custom elements
-            </p>
-          </header>
-          <div class="card-content">
-            <div class="field">
-              <label class="label">Checkbox</label>
-              <div class="field-body">
-                <div class="field grouped multiline">
-                  <div class="control">
-                    <label class="checkbox"><input type="checkbox" value="lorem" checked>
-                      <span class="check"></span>
-                      <span class="control-label">Lorem</span>
-                    </label>
-                  </div>
-                  <div class="control">
-                    <label class="checkbox"><input type="checkbox" value="ipsum">
-                      <span class="check"></span>
-                      <span class="control-label">Ipsum</span>
-                    </label>
-                  </div>
-                  <div class="control">
-                    <label class="checkbox"><input type="checkbox" value="dolore">
-                      <span class="check is-primary"></span>
-                      <span class="control-label">Dolore</span>
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <hr>
-            <div class="field">
-              <label class="label">Radio</label>
-              <div class="field-body">
-                <div class="field grouped multiline">
-                  <div class="control">
-                    <label class="radio">
-                      <input type="radio" name="sample-radio" value="one" checked>
-                      <span class="check"></span>
-                      <span class="control-label">One</span>
-                    </label>
-                  </div>
-                  <div class="control">
-                    <label class="radio">
-                      <input type="radio" name="sample-radio" value="two">
-                      <span class="check"></span>
-                      <span class="control-label">Two</span>
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <hr>
-            <div class="field">
-              <label class="label">Switch</label>
-              <div class="field-body">
-                <div class="field">
-                  <label class="switch">
-                    <input type="checkbox" value="false">
-                    <span class="check"></span>
-                    <span class="control-label">Default</span>
-                  </label>
-                </div>
-              </div>
-            </div>
-            <hr>
-            <div class="field">
-              <label class="label">File</label>
-              <div class="field-body">
-                <div class="field file">
-                  <label class="upload control">
-                    <a class="button blue">
-                      Upload
-                    </a>
-                    <input type="file">
-                  </label>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -279,7 +144,7 @@
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=658339141622648&ev=PageView&noscript=1"/></noscript>
 
     <!-- Icons below are for demo only. Feel free to use any icon pack. Docs: https://bulma.io/documentation/elements/icon/ -->
-    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.9.95/css/materialdesignicons.min.css">
 
-</div>
+
+
 @endsection

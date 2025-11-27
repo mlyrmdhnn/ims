@@ -2,13 +2,12 @@
 
 namespace Database\Factories;
 
-use App\Models\Notifications;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\transactions>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\item_history>
  */
-class TransactionsFactory extends Factory
+class ItemHistoryFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,8 +17,7 @@ class TransactionsFactory extends Factory
     public function definition(): array
     {
         return [
-            'notif_id' => Notifications::factory(),
-            'transaction_no' => fake()->sentence(rand(1,4)),
+            //
         ];
     }
 }

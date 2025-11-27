@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\ClientRequestController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\RequestFromClient;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -12,13 +14,32 @@ Route::get('/coba2', function() {
     return view('dashboard.table');
 });
 
-Route::get('/back-office/login' , [UserController::class, 'page']);
 Route::get('/', function() {
     return view('landingPage', ['title' => 'IMS']);
 });
+
+Route::get('/back-office/login' , [UserController::class, 'page']);
+Route::get('/client/login', [UserController::class, 'clientPage']);
+Route::get('/client/regist', [UserController::class, 'clientRegistPage']);
+
+Route::post('/regist',[UserController::class, 'clientRegist']);
+
+Route::post('/login/client', [UserController::class]);
 Route::post('/login', [UserController::class, 'login']);
-Route::post('/logout    ', [UserController::class, 'logout']);
-// Route::get('/dashboard')
+Route::post('/logout', [UserController::class, 'logout']);
+
 Route::middleware('auth')->group(function() {
     Route::get('/dashboard', [DashboardController::class, 'show']);
+    Route::get('/request', [RequestFromClient::class, 'page']);
+    Route::get('/request/rejected', [RequestFromClient::class, 'rejectedPage']);
+    Route::get('/request/approved', [RequestFromClient::class, 'approvedPage']);
+    Route::get('/request/pending', [RequestFromClient::class, 'pendingPage']);
+    Route::post('/request/decision', [RequestFromClient::class, 'requestDecision']);
+    Route::get('/request/detail/{uuid}', [RequestFromClient::class, 'detailRequest']);
+    // client page
+    Route::get('/client/dashboard', [DashboardController::class, 'clientDashboard']);
+    Route::get('/client/request', function() {
+        return view('client.request', ['title' => 'IMS | Request']);
+    });
+    Route::post('/client/request', [ClientRequestController::class, 'sendRequest']);
 });

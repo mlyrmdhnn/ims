@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -23,8 +24,10 @@ class User extends Authenticatable
         'name',
         'role',
         'password',
-        'email',
-        'warehouse_id'
+        'phone',
+        'isCLient',
+        'warehouse_id',
+        'isClient'
     ];
 
     /**
@@ -52,5 +55,25 @@ class User extends Authenticatable
     public function warehouse() :BelongsTo
     {
         return $this->belongsTo(warehouses::class);
+    }
+
+    public function notifFrom() :BelongsTo
+    {
+        return $this->belongsTo(Notifications::class, 'from');
+    }
+
+    public function notifTo() :BelongsTo
+    {
+        return $this->belongsTo(Notifications::class, 'to');
+    }
+
+    public function inventoryUnits() :HasMany
+    {
+        return $this->hasMany(Inventory_units::class);
+    }
+
+    public function itemsHistory() :HasMany
+    {
+        return $this->hasMany(item_history::class);
     }
 }

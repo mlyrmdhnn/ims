@@ -13,9 +13,10 @@ as
     <button type="submit" class="bg-red-500 text-white rounded p-1 cursor-pointer">Logout</button>
 </form> --}}
 
+{{-- @dd(session('user')) --}}
 
 <div id="app">
-    <x-nav-and-side/>
+    <x-nav-and-side />
     <section class="is-title-bar">
       <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
         <ul>
@@ -507,8 +508,9 @@ as
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=658339141622648&ev=PageView&noscript=1"/></noscript>
 
     <!-- Icons below are for demo only. Feel free to use any icon pack. Docs: https://bulma.io/documentation/elements/icon/ -->
-    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.9.95/css/materialdesignicons.min.css">
 
 
 
+
+</div>
 @endsection

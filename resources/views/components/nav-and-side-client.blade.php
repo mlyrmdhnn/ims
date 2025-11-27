@@ -1,8 +1,4 @@
-@php
-    $total = $totalNotif->where('isAproved', 'pending')->count();
-@endphp
-
-<nav id="navbar-main" class="navbar is-fixed-top">
+<nav id="navbar-main" class="navbar is-fixed-top text-white warna-header">
     <div class="navbar-brand">
       <a class="navbar-item mobile-aside-button">
         <span class="icon"><i class="mdi mdi-forwardburger mdi-24px"></i></span>
@@ -15,7 +11,7 @@
         <span class="icon"><i class="mdi mdi-dots-vertical mdi-24px"></i></span>
       </a>
     </div>
-    <div class="navbar-menu" id="navbar-menu">
+    <div class="navbar-menu warna-header" id="navbar-menu">
       <div class="navbar-end">
         <div class="navbar-item dropdown has-divider">
         </div>
@@ -26,13 +22,13 @@
             <div class="is-user-name"><span>{{ session('user.name') }}</span></div>
             <span class="icon"><i class="mdi mdi-chevron-down"></i></span>
           </a>
-          <div class="navbar-dropdown">
+          <div class="navbar-dropdown text-black">
             <a href="profile.html" class="navbar-item">
               <span class="icon"><i class="mdi mdi-account"></i></span>
               <span>My Profile</span>
             </a>
             <a class="navbar-item">
-              <span class="icon"><i class="mdi mdi-settings"></i></span>
+              <span class="icon"><i class="mdi mdi-cog"></i></span>
               <span>Settings</span>
             </a>
             <a class="navbar-item">
@@ -64,9 +60,9 @@
     <div class="menu is-menu-main">
       <p class="menu-label">General</p>
       <ul class="menu-list">
-        <li class="{{ request()->is('dashboard') ? 'active' : '' }}">
-          <a href="/dashboard">
-            <span class="icon"><i class="mdi mdi-desktop-mac"></i></span>
+        <li class="{{ request()->is('client/dashboard') ? 'active' : '' }}">
+          <a href="/client/dashboard">
+            <span class="icon"><i class="mdi mdi-monitor"></i></span>
             <span class="menu-item-label">Dashboard</span>
           </a>
         </li>
@@ -81,30 +77,30 @@
       </ul>
       <p class="menu-label">Examples</p>
       <ul class="menu-list">
-        <li class="{{ request()->is('request') ? 'active' : '' }}">
-          <a href="/request">
+        {{-- <li class="--set-active-tables-html">
+          <a href="tables.html">
             <span class="icon"><i class="mdi mdi-form-select"></i></span>
-            <span class="menu-item-label">Request <span class="text-red-500">{{ $total > 9 ? '9+' : ($total > 0 ? $total : '') }}</span></span>
+            <span class="menu-item-label">Request</span>
           </a>
-        </li>
-        <li class="--set-active-forms-html">
-          <a href="forms.html">
+        </li> --}}
+        <li class="{{ request()->is('client/request') ? 'active' : '' }}">
+          <a href="/client/request">
             <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
-            <span class="menu-item-label">Forms</span>
+            <span class="menu-item-label">Request</span>
           </a>
         </li>
-        <li class="--set-active-profile-html">
+         <li class="--set-active-profile-html">
           <a href="profile.html">
-            <span class="icon"><i class="mdi mdi-account-circle"></i></span>
-            <span class="menu-item-label">Profile</span>
+            <span class="icon"><i class="mdi mdi-history"></i></span>
+            <span class="menu-item-label">History</span>
           </a>
         </li>
-        <li>
+        {{-- <li>
           <a href="login.html">
             <span class="icon"><i class="mdi mdi-lock"></i></span>
             <span class="menu-item-label">Login</span>
           </a>
-        </li>
+        </li> --}}
         <li>
           <a class="dropdown">
             <span class="icon"><i class="mdi mdi-view-list"></i></span>
@@ -128,21 +124,9 @@
       <p class="menu-label">About</p>
       <ul class="menu-list">
         <li>
-          <a href="https://justboil.me" onclick="alert('Coming soon'); return false" target="_blank" class="has-icon">
-            <span class="icon"><i class="mdi mdi-credit-card-outline"></i></span>
-            <span class="menu-item-label">Premium Demo</span>
-          </a>
-        </li>
-        <li>
           <a href="https://justboil.me/tailwind-admin-templates" class="has-icon">
             <span class="icon"><i class="mdi mdi-help-circle"></i></span>
             <span class="menu-item-label">About</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/justboil/admin-one-tailwind" class="has-icon">
-            <span class="icon"><i class="mdi mdi-github-circle"></i></span>
-            <span class="menu-item-label">GitHub</span>
           </a>
         </li>
       </ul>

@@ -18,17 +18,13 @@ class NotificationsFactory extends Factory
     public function definition(): array
     {
         return [
-            // $table->id();
-            // $table->boolean('isRead')->default(false);
-            // $table->foreignId('from')->constrained('users', 'id')->onDelete('cascade');
-            // $table->foreignId('to')->constrained('users', 'id')->onDelete('cascade');
-            // $table->boolean('isAproved')->default(false);
-            // $table->text('desc');
+            'uuid' => fake()->uuid(),
+            'notification_id' => fake()->sentence(rand(1,5)),
             'isRead' => false,
             'from' => User::factory(),
             'to' => User::factory(),
-            // 'transaction_no' => fake()->sentence(rand(1,9)),
             'isAproved' => fake()->randomElement([true, false]),
+            'title' => fake()->sentence(rand(1,3)),
             'desc' => fake()->text()
         ];
     }

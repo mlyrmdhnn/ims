@@ -6,13 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Transactions extends Model
+class item_history extends Model
 {
-    /** @use HasFactory<\Database\Factories\TransactionsFactory> */
+    /** @use HasFactory<\Database\Factories\ItemHistoryFactory> */
     use HasFactory;
-
-    public function transaction() : BelongsTo
+    public function itemsHistory() :BelongsTo
     {
-        return $this->belongsTo(Notifications::class, 'notif_id');
+        return $this->belongsTo(User::class);
     }
 }

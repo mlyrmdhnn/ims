@@ -4,6 +4,7 @@
 ::before {
     box-sizing: border-box;
 }
+
 html {
     -moz-tab-size: 4;
     -o-tab-size: 4;
@@ -152,17 +153,17 @@ textarea {
 }
 input::-moz-placeholder,
 textarea::-moz-placeholder {
-    opacity: 1;
+    /* opacity: 1; */
     color: #9ca3af;
 }
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
-    opacity: 1;
+    /* opacity: 1; */
     color: #9ca3af;
 }
 input::placeholder,
 textarea::placeholder {
-    opacity: 1;
+    /* opacity: 1; */
     color: #9ca3af;
 }
 button {
@@ -1556,4 +1557,11 @@ footer {
     .lg\:grid-cols-2 {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+}
+
+/* my css */
+
+.warna-header {
+    background-color: oklch(27.9% 0.041 260.031);
+    /* shadow: 2rem; */
 }

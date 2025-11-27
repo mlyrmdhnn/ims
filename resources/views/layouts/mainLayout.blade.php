@@ -7,7 +7,8 @@
   <title>Forms - Admin One Tailwind CSS Admin Dashboard</title>
 
   <!-- Tailwind is included -->
-  @vite(['resources/css/app.css', 'resources/js/app.js',])
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
+  @vite(['resources/css/my.css'])
   @vite('resources/css/main.css')
   @vite(['resources/js/chart.sample.js',])
   @vite(['resources/js/chart.sample.min.js',])
@@ -53,5 +54,8 @@
 </head>
 <body>
     @yield('content')
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.9.95/css/materialdesignicons.min.css">
 </body>
 </html>

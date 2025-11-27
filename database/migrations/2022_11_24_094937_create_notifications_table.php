@@ -13,11 +13,14 @@ return new class extends Migration
     {
         Schema::create('notifications', function (Blueprint $table) {
             $table->id();
+            $table->string('uuid')->unique();
+            $table->string('notification_id')->unique();
             $table->boolean('isRead')->default(false);
             $table->foreignId('from')->constrained('users', 'id')->onDelete('cascade');
             $table->foreignId('to')->constrained('users', 'id')->onDelete('cascade');
-            $table->boolean('isAproved')->default(false);
+            $table->string('title');
             $table->text('desc');
+            $table->string('isAproved')->nullable();
             $table->timestamps();
         });
     }
