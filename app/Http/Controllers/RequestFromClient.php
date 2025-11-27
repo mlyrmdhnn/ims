@@ -60,7 +60,6 @@ class RequestFromClient extends Controller
     public function requestDecision(Request $request) {
         $selectedRequest = Notifications::where('id', $request->id)->first();
         $transactionNo = '';
-
         do{
             $transactionNo = 'TRX-' . now()->format('Ymd') . '-' . Str::upper(Str::random(12));
         } while (Transactions::where('transaction_no', $transactionNo)->exists());
@@ -73,8 +72,11 @@ class RequestFromClient extends Controller
             ]);
         }
 
+
+
         $selectedRequest->update([
-            'isAproved' => $request->status
+            'isAproved' => $request->status,
+            'message' => $request->message
         ]);
         return redirect('/request');
     }

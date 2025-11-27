@@ -93,6 +93,12 @@
             <span class="menu-item-label">History</span>
           </a>
         </li>
+         <li class="--set-active-profile-html">
+          <a href="profile.html">
+            <span class="icon"><i class="mdi mdi-cash"></i></span>
+            <span class="menu-item-label">Transaction</span>
+          </a>
+        </li>
         {{-- <li>
           <a href="login.html">
             <span class="icon"><i class="mdi mdi-lock"></i></span>

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('desc');
             $table->string('isAproved')->nullable();
+            $table->text('message')->nullable();
             $table->timestamps();
         });
     }

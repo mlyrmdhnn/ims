@@ -25,7 +25,8 @@ class NotificationsFactory extends Factory
             'to' => User::factory(),
             'isAproved' => fake()->randomElement([true, false]),
             'title' => fake()->sentence(rand(1,3)),
-            'desc' => fake()->text()
+            'desc' => fake()->text(),
+            'message' => fake()->text()
         ];
     }
 }

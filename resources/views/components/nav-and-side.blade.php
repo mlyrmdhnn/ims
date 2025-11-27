@@ -81,14 +81,14 @@
       <ul class="menu-list">
         <li class="{{ request()->is('request') ? 'active' : '' }}">
           <a href="/request">
-            <span class="icon"><i class="mdi mdi-form-select"></i></span>
+            <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
             <span class="menu-item-label">Request <span class="text-red-500">{{ $total > 9 ? '9+' : ($total > 0 ? $total : '') }}</span></span>
           </a>
         </li>
         <li class="--set-active-forms-html">
           <a href="forms.html">
-            <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
-            <span class="menu-item-label">Forms</span>
+            <span class="icon"><i class="mdi mdi-cash"></i></span>
+            <span class="menu-item-label">Transaction</span>
           </a>
         </li>
         <li class="--set-active-profile-html">

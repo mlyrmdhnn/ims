@@ -38,22 +38,31 @@
                     $request->isAproved == 'pending' ? 'text-amber-500' :
                     ($request->isAproved == 'rejected' ? 'text-red-500' :
                     ($request->isAproved == 'approved' ? 'text-green-500' : ''))
-                    }}">{{ $request->isAproved }}</span></div>
-                <div>
-                   @if ($request->isAproved == 'pending')
-                    <form action="/request/decision" method="POST">
-                        @csrf
-                        <button name="status" value="approved" class="button green">Approved</button>
-                        <button name="status" value="rejected" class="button red">Reject</button>
-                        <input type="hidden" name="id" value="{{ $request->id }}">
-                    </form>
-                   @endif
+                    }}">{{ $request->isAproved }}</span>
                 </div>
             </div>
           </div>
         </div>
       </section>
-
+      <section class="main-section">
+        <div>
+            @if ($request->isAproved == 'pending')
+             <form action="/request/decision" method="POST">
+                 @csrf
+                 <button name="status" value="approved" class="button green">Approved</button>
+                 <button name="status" value="rejected" class="button red">Reject</button>
+                 <input type="hidden" name="id" value="{{ $request->id }}">
+                 <div class="field">
+                    <label class="label">Add Message To Client</label>
+                    <div class="control">
+                      <textarea class="textarea" name="message" placeholder="Send message to your client"></textarea>
+                    </div>
+                  </div>
+                </div>
+             </form>
+            @endif
+         </div>
+      </section>
 
 </div>
 <style>
