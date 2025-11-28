@@ -86,13 +86,32 @@
             <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
             <span class="menu-item-label">Request</span>
           </a>
-        </li>
-         <li class="--set-active-profile-html">
-          <a href="profile.html">
+        {{-- </li>
+         <li class="{{ request()->is('client/history') ? 'active' : '' }}">
+          <a href="/client/history">
             <span class="icon"><i class="mdi mdi-history"></i></span>
             <span class="menu-item-label">History</span>
           </a>
-        </li>
+        </li> --}}
+        <li class="{{ request()->is('client/history/*') ? 'active' : '' }}">
+            <a class="dropdown">
+              <span class="icon"><i class="mdi mdi-history"></i></span>
+              <span class="menu-item-label">History</span>
+              <span class="icon"><i class="mdi mdi-plus"></i></span>
+            </a>
+            <ul>
+              <li>
+                <a href="/client/history/request">
+                  <span>Request</span>
+                </a>
+              </li>
+              <li>
+                <a href="/client/history/transaction">
+                  <span>Transaction</span>
+                </a>
+              </li>
+            </ul>
+          </li>
          <li class="--set-active-profile-html">
           <a href="profile.html">
             <span class="icon"><i class="mdi mdi-cash"></i></span>

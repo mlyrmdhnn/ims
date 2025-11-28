@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\ClientRequestController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\RequestFromClient;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,10 +38,15 @@ Route::middleware('auth')->group(function() {
     Route::get('/request/pending', [RequestFromClient::class, 'pendingPage']);
     Route::post('/request/decision', [RequestFromClient::class, 'requestDecision']);
     Route::get('/request/detail/{uuid}', [RequestFromClient::class, 'detailRequest']);
+    Route::get('/transaction', [TransactionController::class, 'page']);
     // client page
     Route::get('/client/dashboard', [DashboardController::class, 'clientDashboard']);
     Route::get('/client/request', function() {
         return view('client.request', ['title' => 'IMS | Request']);
     });
     Route::post('/client/request', [ClientRequestController::class, 'sendRequest']);
+    Route::get('/client/history/request', [HistoryController::class, 'clientHistoryRequestPage']);
+    Route::get('/client/history/transaction', [HistoryController::class, 'clientHistoryTransactionPage']);
+    // Reusable Page
+    Route::get('/detail/transaction/{transactionNo}', [TransactionController::class, 'detailTransactionPage']);
 });

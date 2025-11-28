@@ -1,9 +1,18 @@
 @extends('layouts.mainLayout')
-
+{{-- @dd(session('user.isClient')) --}}
 @section('content')
 {{-- @dd($request) --}}
+@php
+    $isClient = session('user.isClient') == 1 ? 'disabled' : '';
+    $placeholder = session('user.isClient') == 1 ? 'Message from company' : 'Send message to your client'
+@endphp
 <div id="app">
+    @if (session('user.isClient') !== 1)
     <x-nav-and-side />
+    @else
+    <x-nav-and-side-client/>
+    @endif
+
     <section class="is-title-bar">
         <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
           <ul>
@@ -13,7 +22,11 @@
         </div>
       </section>
 
-     <x-nav-btn-link/>
+
+      @if (session('user.isClient') !== 1)
+      <x-nav-btn-link/>
+      @endif
+
 
       <section class="section main-section grid grid-cols-1 gap-4">
         <div class="card">
@@ -46,23 +59,45 @@
       </section>
       <section class="main-section">
         <div>
-            @if ($request->isAproved == 'pending')
-             <form action="/request/decision" method="POST">
-                 @csrf
-                 <button name="status" value="approved" class="button green">Approved</button>
-                 <button name="status" value="rejected" class="button red">Reject</button>
-                 <input type="hidden" name="id" value="{{ $request->id }}">
-                 <div class="field">
-                    <label class="label">Add Message To Client</label>
-                    <div class="control">
-                      <textarea class="textarea" name="message" placeholder="Send message to your client"></textarea>
+
+            {{-- FORM HANYA MUNCUL JIKA STATUS MASIH PENDING DAN USERNYA ADMIN --}}
+            @if ($request->isAproved === 'pending' && session('user.isClient') !== 1)
+                <form action="/request/decision" method="POST">
+                    @csrf
+
+                    <button name="status" value="approved" class="button green">Approved</button>
+                    <button name="status" value="rejected" class="button red">Reject</button>
+
+                    <input type="hidden" name="id" value="{{ $request->id }}">
+
+                    <div class="field mt-4">
+                        <label class="label">Add Message To Client</label>
+                        <div class="control">
+                            <textarea class="textarea" name="message" placeholder="Send message to your client"></textarea>
+                        </div>
                     </div>
-                  </div>
-                </div>
-             </form>
+                </form>
             @endif
-         </div>
-      </section>
+
+
+            {{-- JIKA SUDAH APPROVED ATAU REJECTED, TAMPILKAN PESAN --}}
+            @if ($request->isAproved === 'approved' || $request->isAproved === 'rejected')
+
+                {{-- Label menyesuaikan siapa yang login --}}
+                <label class="label">
+                    {{ session('user.isClient') == 1 ? 'Message From Company' : 'Message Sent To Client' }}
+                </label>
+
+                <div class="control">
+                    <textarea disabled class="textarea">
+    {{ $request->message }}
+                    </textarea>
+                </div>
+            @endif
+
+        </div>
+    </section>
+
 
 </div>
 <style>

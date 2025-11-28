@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Forms - Admin One Tailwind CSS Admin Dashboard</title>
+  <title>{{ $title }}</title>
 
   <!-- Tailwind is included -->
   @vite(['resources/css/app.css', 'resources/js/app.js'])

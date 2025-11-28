@@ -22,6 +22,6 @@ class Transactions extends Model
     }
     public function ownerTransaction() :BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'owner_transaction');
     }
 }

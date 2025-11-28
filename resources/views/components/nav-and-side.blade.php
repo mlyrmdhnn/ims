@@ -86,7 +86,7 @@
           </a>
         </li>
         <li class="--set-active-forms-html">
-          <a href="forms.html">
+          <a href="/transaction">
             <span class="icon"><i class="mdi mdi-cash"></i></span>
             <span class="menu-item-label">Transaction</span>
           </a>

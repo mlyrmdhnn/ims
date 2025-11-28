@@ -8,9 +8,9 @@ use App\Models\Notifications;
 class DashboardController extends Controller
 {
     public function show() {
-    $request = Notifications::where('isAproved', 'pending')->get();
+    $request = Notifications::where('isAproved', 'pending')->latest()->get();
 
-        return view('dashboard.dashboard', ['requests' => $request]);
+        return view('dashboard.dashboard', ['requests' => $request, 'title' => 'IMS | Dashboard']);
     }
 
     public function clientDashboard () {
