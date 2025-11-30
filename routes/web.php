@@ -3,6 +3,7 @@
 use App\Http\Controllers\ClientRequestController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HistoryController;
+use App\Http\Controllers\ItemsController;
 use App\Http\Controllers\RequestFromClient;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
@@ -39,6 +40,8 @@ Route::middleware('auth')->group(function() {
     Route::post('/request/decision', [RequestFromClient::class, 'requestDecision']);
     Route::get('/request/detail/{uuid}', [RequestFromClient::class, 'detailRequest']);
     Route::get('/transaction', [TransactionController::class, 'page']);
+    Route::get('/create/item',[ItemsController::class, 'page']);
+    Route::post('/item/create', [ItemsController::class, 'createItem']);
     // client page
     Route::get('/client/dashboard', [DashboardController::class, 'clientDashboard']);
     Route::get('/client/request', function() {

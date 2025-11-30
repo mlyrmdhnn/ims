@@ -11,6 +11,7 @@ class Inventories extends Model
     /** @use HasFactory<\Database\Factories\InventoriesFactory> */
     use HasFactory;
 
+    protected $guarded = [];
     // warehouse items
 
     public function warehouse() :BelongsTo

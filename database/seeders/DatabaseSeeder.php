@@ -59,6 +59,5 @@ class DatabaseSeeder extends Seeder
             'isClient' => true
         ]);
 
-
     }
 }

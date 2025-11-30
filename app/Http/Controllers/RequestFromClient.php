@@ -6,6 +6,7 @@ use Illuminate\Support\Str;
 use App\Models\Transactions;
 use Illuminate\Http\Request;
 use App\Models\Notifications;
+use App\Models\warehouses;
 
 class RequestFromClient extends Controller
 {
@@ -31,7 +32,7 @@ class RequestFromClient extends Controller
 
     public function detailRequest(Request $request) {
         $detailRequest = Notifications::where('uuid', $request->uuid)->first();
-        return view('admin.detailRequest', ['title' => 'IMS | Detail Request', 'request' => $detailRequest]);
+        return view('admin.detailRequest', ['title' => 'IMS | Detail Request', 'request' => $detailRequest, ]);
     }
 
 
@@ -49,13 +50,6 @@ class RequestFromClient extends Controller
 
         return response()->json(['message' => 'Success']);
     }
-
-
-    // $notifId = '';
-    //     do {
-    //         $notifId = 'TRX-' . now()->format('Ymd') . '-' . Str::upper(Str::random(6));
-    //     } while (Notifications::where('notification_id', $notifId)->exists());
-
 
     public function requestDecision(Request $request) {
         $selectedRequest = Notifications::where('id', $request->id)->first();

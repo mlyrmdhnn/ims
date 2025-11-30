@@ -17,7 +17,7 @@
         </div>
         <div class="navbar-item dropdown has-divider has-user-avatar">
           <a class="navbar-link">
-            <div class="is-user-name"><span>{{ session('user.name') }}</span></div>
+            <div class="is-user-name text-black md:text-white"><span>{{ session('user.name') }}</span></div>
             <span class="icon"><i class="mdi mdi-chevron-down"></i></span>
           </a>
           <div class="navbar-dropdown md:text-black">

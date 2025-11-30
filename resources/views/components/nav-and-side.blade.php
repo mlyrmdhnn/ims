@@ -21,7 +21,7 @@
         </div>
         <div class="navbar-item dropdown has-divider has-user-avatar">
           <a class="navbar-link">
-            <div class="is-user-name"><span>{{ session('user.name') }}</span></div>
+            <div class="is-user-name text-black md:text-white"><span>{{ session('user.name') }}</span></div>
             <span class="icon"><i class="mdi mdi-chevron-down"></i></span>
           </a>
           <div class="navbar-dropdown md:text-black">
@@ -85,16 +85,16 @@
             <span class="menu-item-label">Request <span class="text-red-500">{{ $total > 9 ? '9+' : ($total > 0 ? $total : '') }}</span></span>
           </a>
         </li>
-        <li class="--set-active-forms-html">
+        <li class="{{ request()->is('transaction') ? 'active' : '' }}">
           <a href="/transaction">
             <span class="icon"><i class="mdi mdi-cash"></i></span>
             <span class="menu-item-label">Transaction</span>
           </a>
         </li>
-        <li class="--set-active-profile-html">
-          <a href="profile.html">
-            <span class="icon"><i class="mdi mdi-account-circle"></i></span>
-            <span class="menu-item-label">Profile</span>
+        <li class="{{ request()->is('create/item') ? 'active' : '' }}">
+          <a href="/create/item">
+            <span class="icon"><i class="mdi mdi-pencil-outline"></i></span>
+            <span class="menu-item-label">Create Item</span>
           </a>
         </li>
         <li>

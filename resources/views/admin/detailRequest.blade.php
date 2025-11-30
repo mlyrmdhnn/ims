@@ -52,6 +52,7 @@
                     ($request->isAproved == 'rejected' ? 'text-red-500' :
                     ($request->isAproved == 'approved' ? 'text-green-500' : ''))
                     }}">{{ $request->isAproved }}</span>
+
                 </div>
             </div>
           </div>
@@ -65,8 +66,12 @@
                 <form action="/request/decision" method="POST">
                     @csrf
 
-                    <button name="status" value="approved" class="button green">Approved</button>
-                    <button name="status" value="rejected" class="button red">Reject</button>
+                   <div class="justify-between items-center flex">
+                        <div>
+                            <button name="status" value="approved" class="button green">Approved</button>
+                            <button name="status" value="rejected" class="button red">Reject</button>
+                        </div>
+                   </div>
 
                     <input type="hidden" name="id" value="{{ $request->id }}">
 

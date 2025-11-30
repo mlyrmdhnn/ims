@@ -11,6 +11,8 @@ class Inventory_units extends Model
     /** @use HasFactory<\Database\Factories\InventoryUnitsFactory> */
     use HasFactory;
 
+    protected $guarded = [];
+
     public function warehouse() :BelongsTo
     {
         return $this->belongsTo(warehouses::class);

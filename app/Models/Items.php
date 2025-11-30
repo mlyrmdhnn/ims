@@ -11,6 +11,8 @@ class Items extends Model
     /** @use HasFactory<\Database\Factories\ItemsFactory> */
     use HasFactory;
 
+    protected $guarded = [];
+
     public function inventories() :HasMany
     {
         return $this->hasMany(Inventories::class);

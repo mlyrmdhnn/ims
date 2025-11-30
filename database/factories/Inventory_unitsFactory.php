@@ -20,9 +20,9 @@ class Inventory_unitsFactory extends Factory
     public function definition(): array
     {
         return [
-            'warehouse_id' => warehouses::factory(),
-            'item_id' => Items::factory(),
-            'owner_id' => User::factory(),
+            // 'warehouse_id' => warehouses::factory(),
+            // 'item_id' => Items::factory(),
+            // 'owner_id' => User::factory(),
         ];
     }
 }
