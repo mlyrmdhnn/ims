@@ -2,7 +2,7 @@
 
 @section('content')
 
-
+{{-- @dd($notif) --}}
 <div id="app">
 
     <x-nav-and-side-client/>

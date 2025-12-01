@@ -47,9 +47,13 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'UA-130795909-1');
-
   </script>
 
+  {{-- @if (session('user.isClient' == 0))
+
+  @endif --}}
+
+  {{-- @dd(session('user.isClient')) --}}
 
 </head>
 <body>

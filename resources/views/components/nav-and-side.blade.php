@@ -97,10 +97,10 @@
             <span class="menu-item-label">Create Item</span>
           </a>
         </li>
-        <li>
-          <a href="login.html">
-            <span class="icon"><i class="mdi mdi-lock"></i></span>
-            <span class="menu-item-label">Login</span>
+        <li class="{{ request()->is('warehouses') ? 'active' : '' }}">
+          <a href="/warehouses">
+            <span class="icon"><i class="mdi mdi-warehouse"></i></span>
+            <span class="menu-item-label">Warehouses</span>
           </a>
         </li>
         <li>

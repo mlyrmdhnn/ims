@@ -4,9 +4,12 @@ use App\Http\Controllers\ClientRequestController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\ItemsController;
+use App\Http\Controllers\NotificationsController;
 use App\Http\Controllers\RequestFromClient;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WarehousesController;
+use App\Models\Notifications;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/coba', function() {
@@ -42,6 +45,11 @@ Route::middleware('auth')->group(function() {
     Route::get('/transaction', [TransactionController::class, 'page']);
     Route::get('/create/item',[ItemsController::class, 'page']);
     Route::post('/item/create', [ItemsController::class, 'createItem']);
+    Route::get('/warehouses',[WarehousesController::class, 'page']);
+    Route::post('/warehouse/create', [WarehousesController::class, 'createWarehouse']);
+    Route::get('/warehouse/delete/{id}', [WarehousesController::class, 'delete']);
+    Route::get('/warehouse/{id}/edit', [WarehousesController::class, 'edit']);
+    Route::patch('/warehouse/{id}', [WarehousesController::class, 'update']);
     // client page
     Route::get('/client/dashboard', [DashboardController::class, 'clientDashboard']);
     Route::get('/client/request', function() {
@@ -50,6 +58,9 @@ Route::middleware('auth')->group(function() {
     Route::post('/client/request', [ClientRequestController::class, 'sendRequest']);
     Route::get('/client/history/request', [HistoryController::class, 'clientHistoryRequestPage']);
     Route::get('/client/history/transaction', [HistoryController::class, 'clientHistoryTransactionPage']);
+    Route::get('/client/transaction', [TransactionController::class, 'clientTransaction']);
+    Route::get('/client/notifications', [NotificationsController::class, 'clientNotifPage']);
+    Route::post('/notification/read/{id}', [NotificationsController::class, 'setRead']);
     // Reusable Page
     Route::get('/detail/transaction/{transactionNo}', [TransactionController::class, 'detailTransactionPage']);
 });

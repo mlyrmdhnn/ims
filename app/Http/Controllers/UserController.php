@@ -91,7 +91,7 @@ class UserController extends Controller
             'role' => 'client',
             'isClient' => true
         ]);
-        return redirect('/client/login')->with('msg', 'Login Successfuly');
+        return redirect('/client/login')->with('success', 'Register Successfuly');
     }
 
     public function logout(Request $request) {
