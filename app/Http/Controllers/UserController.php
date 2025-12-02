@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\warehouses;
 use Illuminate\Http\Request;
 use function Pest\Laravel\session;
 
@@ -56,27 +57,9 @@ class UserController extends Controller
         return redirect('/dashboard');
     }
 
-
-    public function createUser(Request $request) {
-        $credentials = $request->validate([
-            'name' => 'required|max:20',
-            'username' => 'unique:users,username,except,id',
-            'password' => 'required',
-            'role' => 'required'
-        ]);
-
-        User::create([
-            'name' => $credentials['name'],
-            'username' => $credentials['username'],
-            'role' => $credentials['role'],
-            'password' => Hash::make($credentials['password']),
-            'isClient' => false
-        ]);
-    }
-
     public function clientRegist (Request $request) {
         $credentials = $request->validate([
-            'username' => 'unique:users,username,except,id|required',
+            'username' => 'unique:users,username|required',
             'name' => 'required',
             'phone' => 'required',
             'password' => 'required|min:6|max:12',
@@ -104,6 +87,33 @@ class UserController extends Controller
             return redirect('/client/login');
         }
         $request->session()->forget('user');
+    }
+
+    public function createUserPage() {
+        $warehouses = warehouses::latest()->get();
+        return view('admin.createUserPage', ['title' => 'IMS | Create User', 'warehouses' => $warehouses]);
+    }
+
+    public function createUser(Request $request) {
+        // dd($request);
+        $credentials = $request->validate([
+            'username' => 'unique:users,username|min:4|max:20',
+            'name' => 'required',
+            'phone' => 'required',
+            'password' => 'required'
+        ]);
+
+        User::create([
+            'username' => $credentials['username'],
+            'name' => $credentials['name'],
+            'role' => $request->role,
+            'phone' => $credentials['phone'],
+            'warehouse_id' => $request->warehouse,
+            'password' => Hash::make($credentials['password'])
+        ]);
+
+        return back()->with('success', 'Berhasil membuat staff');
 
     }
+
 }

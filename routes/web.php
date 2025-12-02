@@ -50,6 +50,9 @@ Route::middleware('auth')->group(function() {
     Route::get('/warehouse/delete/{id}', [WarehousesController::class, 'delete']);
     Route::get('/warehouse/{id}/edit', [WarehousesController::class, 'edit']);
     Route::patch('/warehouse/{id}', [WarehousesController::class, 'update']);
+    Route::get('/create/staff', [UserController::class, 'createUserPage']);
+    Route::post('/create/staff', [UserController::class, 'createUser']);
+    // Route::post('/create/staff' [UserController::class, 'createUser']);
     // client page
     Route::get('/client/dashboard', [DashboardController::class, 'clientDashboard']);
     Route::get('/client/request', function() {

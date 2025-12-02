@@ -11,6 +11,11 @@
                 </h1>
                 <form class="space-y-4 md:space-y-6" action="/login" method="POST">
                     @csrf
+                    @if (session('error'))
+                    <div class="-mt-4 mb-2">
+                        <span class="text-red-500">{{ session('error') }}</span>
+                    </div>
+                    @endif
                     {{-- <input type="text" value="1" name="isClient"> --}}
                     <input type="hidden" name="isClient" value="1">
 

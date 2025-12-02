@@ -40,6 +40,6 @@ class ClientRequestController extends Controller
             'isAproved' => 'pending',
         ]);
 
-        return redirect('/client/request');
+        return redirect('/client/request')->with('success', 'Request berhasil di kirim');
     }
 }

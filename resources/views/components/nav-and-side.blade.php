@@ -123,26 +123,15 @@
           </ul>
         </li>
       </ul>
-      <p class="menu-label">About</p>
+      <p class="menu-label">User</p>
       <ul class="menu-list">
-        <li>
-          <a href="https://justboil.me" onclick="alert('Coming soon'); return false" target="_blank" class="has-icon">
-            <span class="icon"><i class="mdi mdi-credit-card-outline"></i></span>
-            <span class="menu-item-label">Premium Demo</span>
-          </a>
+        <li class="{{ request()->is('create/staff') ? 'active' : '' }}">
+            <a href="/create/staff">
+                <span class="icon"><i class="mdi mdi-account-plus"></i></span>
+                <span class="menu-item-label">Create Staff</span>
+            </a>
         </li>
-        <li>
-          <a href="https://justboil.me/tailwind-admin-templates" class="has-icon">
-            <span class="icon"><i class="mdi mdi-help-circle"></i></span>
-            <span class="menu-item-label">About</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/justboil/admin-one-tailwind" class="has-icon">
-            <span class="icon"><i class="mdi mdi-github-circle"></i></span>
-            <span class="menu-item-label">GitHub</span>
-          </a>
-        </li>
+
       </ul>
     </div>
   </aside>
