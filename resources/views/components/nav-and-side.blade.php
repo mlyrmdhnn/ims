@@ -131,6 +131,12 @@
                 <span class="menu-item-label">Create Staff</span>
             </a>
         </li>
+        <li class="{{ request()->is('proffile') ? 'active' : '' }}">
+            <a href="/proffile">
+                <span class="icon"><i class="mdi mdi-account"></i></span>
+                <span class="menu-item-label">Proffile</span>
+            </a>
+        </li>
 
       </ul>
     </div>

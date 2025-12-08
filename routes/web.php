@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AiController;
 use App\Http\Controllers\ClientRequestController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HistoryController;
@@ -66,4 +67,7 @@ Route::middleware('auth')->group(function() {
     Route::post('/notification/read/{id}', [NotificationsController::class, 'setRead']);
     // Reusable Page
     Route::get('/detail/transaction/{transactionNo}', [TransactionController::class, 'detailTransactionPage']);
+    Route::get('/proffile', [UserController::class, 'proffilePage']);
+    Route::post('/change/proffile', [UserController::class, 'changeProffile']);
+    Route::post('/change/password', [UserController::class, 'changePassword']);
 });

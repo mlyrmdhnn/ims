@@ -47,7 +47,8 @@ class UserController extends Controller
             'id' => $user->id,
             'username' => $user->username,
             'name' => $user->name,
-            'isClient' => $user->isClient
+            'isClient' => $user->isClient,
+            'role' => $user->role
         ]);
 
         if($user->isClient) {
@@ -115,5 +116,50 @@ class UserController extends Controller
         return back()->with('success', 'Berhasil membuat staff');
 
     }
+
+    public function proffilePage(){
+        $user = User::where('id', Session::get('user.id'))->first();
+        return view('reusable.proffilePage', ['title' => 'IMS | Proffile', 'user' => $user]);
+    }
+
+    public function changeProffile(Request $request) {
+        $user = User::where('username', $request->username)->first(['id', 'username', 'name', 'phone', 'role']);
+        $credentials = $request->validate([
+            'name' => 'required|min:4|max:16',
+            'phone' => 'required'
+        ]);
+
+        $user->update([
+            'name' => $credentials['name'],
+            'phone' => $credentials['phone']
+        ]);
+
+        return back()->with('success', 'Berhasil menyimpan perubahan');
+    }
+
+    public function changePassword(Request $request)
+    {
+        $credentials = $request->validate([
+            'currentPassword' => 'required|min:6|max:12',
+            'newPassword' => 'required|min:6|max:12'
+        ]);
+
+        $user = User::where('id', Session::get('user.id'))->first(['id','password']);
+
+        if (!Hash::check($credentials['currentPassword'], $user->password)) {
+            return back()->with('error', 'Wrong password, please check again');
+        }
+
+        if ($credentials['currentPassword'] === $credentials['newPassword']) {
+            return back()->with('error', 'New password must be different from current password');
+        }
+
+        $user->update([
+            'password' => Hash::make($credentials['newPassword'])
+        ]);
+
+        return back()->with('success', 'Password updated successfully');
+    }
+
 
 }

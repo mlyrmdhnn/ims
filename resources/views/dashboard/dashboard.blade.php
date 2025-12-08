@@ -14,7 +14,7 @@ as
 </form> --}}
 
 {{-- @dd(session('user')) --}}
-
+{{-- @dd(session('user.role')) --}}
 <div id="app">
     <x-nav-and-side />
     <section class="is-title-bar">
