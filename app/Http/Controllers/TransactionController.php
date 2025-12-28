@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Session;
 class TransactionController extends Controller
 {
     public function page() {
-        $transactions = Transactions::latest()->get();
+        $transactions = Transactions::paginate(10);
         return view('admin.transactionPage', ['title' => 'IMS | Transactions', 'transactions' => $transactions]);
     }
 
@@ -24,7 +24,7 @@ class TransactionController extends Controller
     }
 
     public function clientTransaction() {
-        $transactions = Transactions::where('owner_transaction', Session('user.id'))->get();
+        $transactions = Transactions::where('owner_transaction', Session('user.id'))->paginate(10);
         return view('client.traansactionPage', ['title' => 'IMS | Transaction', 'transactions' => $transactions]);
     }
 }

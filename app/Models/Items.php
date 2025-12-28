@@ -13,13 +13,15 @@ class Items extends Model
 
     protected $guarded = [];
 
-    public function inventories() :HasMany
+    public function inventories()
     {
-        return $this->hasMany(Inventories::class);
+        return $this->hasOne(Inventories::class, 'item_id');
     }
 
-    public function inventoryUnits() :HasMany
-    {
-        return $this->hasMany(Inventory_units::class);
-    }
+
+    // public function inventoryUnits() :HasMany
+    // {
+    //     return $this->hasMany(Inventory_units::class, 'item_id');
+    // }
+
 }

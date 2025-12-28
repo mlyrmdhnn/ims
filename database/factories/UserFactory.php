@@ -26,7 +26,6 @@ class UserFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            // 'email' => fake()->email(),
             'username' => fake()->userName(),
             'phone' => fake()->phoneNumber(),
             'role' => fake()->sentence(rand(1,1)),

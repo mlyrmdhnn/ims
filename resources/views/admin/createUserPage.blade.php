@@ -34,7 +34,7 @@
                 <input type="hidden" name="role" value="staff">
 
               <div class="field spaced">
-                <label class="label">Login</label>
+                <label class="label">Username</label>
                 <div class="control icons-left">
                   <input class="input" type="text" name="username" placeholder="username" required>
                   <span class="icon is-small left"><i class="mdi mdi-account"></i></span>

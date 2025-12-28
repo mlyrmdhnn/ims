@@ -2,7 +2,6 @@
 
 @section('content')
 
-{{-- @dd($notif) --}}
 <div id="app">
 
     <x-nav-and-side-client/>
@@ -12,7 +11,7 @@
         <ul>
           <li>CLient</li>
           <li>Request</li>
-          <li>Stock In</li>
+          <li>Stock Out</li>
         </ul>
       </div>
     </section>
@@ -37,7 +36,7 @@
             @if (session('success'))
                 <span class="text-green-500">{{ session('success') }}</span>
             @endif
-            <form method="POST" action="/client/request">
+            <form method="POST" action="/client/request/stockout">
                 @csrf
               <hr>
               <div class="field">

@@ -1,11 +1,14 @@
 <section class="section main-section grid grid-cols-1 gap-4">
 
+  <form action="" method="GET" class="flex section main-section">
     <input
     type="text"
     placeholder="Search items..."
+    name="search"
     class="w-full px-3 py-2 rounded-lg border border-gray-300 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
   />
-
+<button class="button green" type="submit">Search</button>
+  </form>
     <div class="card has-table">
         <div class="card-content">
           <table>
@@ -45,14 +48,7 @@
             </tbody>
           </table>
           <div class="table-pagination">
-            <div class="flex items-center justify-between">
-              <div class="buttons">
-                <button type="button" class="button active">1</button>
-                <button type="button" class="button">2</button>
-                <button type="button" class="button">3</button>
-              </div>
-              <small>Page 1 of 3</small>
-            </div>
+            {{ $requests->links() }}
           </div>
         </div>
       </div>

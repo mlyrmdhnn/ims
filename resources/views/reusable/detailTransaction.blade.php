@@ -12,6 +12,11 @@
         <x-nav-and-side-client/>
     @endif
 
+    @if (session('user.role') == 'staff')
+        <x-nav-and-side-staff/>
+    @endif
+
+
     <section class="is-title-bar">
         <div class="ims-kwitansi">
 

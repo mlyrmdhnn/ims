@@ -48,11 +48,17 @@ class UserController extends Controller
             'username' => $user->username,
             'name' => $user->name,
             'isClient' => $user->isClient,
-            'role' => $user->role
+            'role' => $user->role,
+            'warehouse_id' => $user->warehouse_id
         ]);
+
 
         if($user->isClient) {
             return redirect('/client/dashboard');
+        }
+
+        if($user->role == 'staff') {
+            return redirect('/staff/items');
         }
 
         return redirect('/dashboard');
@@ -81,13 +87,15 @@ class UserController extends Controller
     public function logout(Request $request) {
         $isClient = Session::get('user.isClient');
         if($isClient == 0) {
+            $request->session()->forget('user');
             return redirect('/back-office/login');
         }
 
         if($isClient == 1) {
+            $request->session()->forget('user');
             return redirect('/client/login');
         }
-        $request->session()->forget('user');
+
     }
 
     public function createUserPage() {
@@ -159,6 +167,19 @@ class UserController extends Controller
         ]);
 
         return back()->with('success', 'Password updated successfully');
+    }
+
+    public function allStaffPage() {
+        $staff = User::with(['warehouse'])
+        ->where('role', 'staff')->latest()->get();
+        return view('admin.staff', ['title' => 'IMS | All Staff', 'staff' => $staff]);
+    }
+
+    public function deleteStaff(Request $request, $id){
+        // dd($id);
+        $staff = User::where('id', $id)->first();
+        $staff->delete();
+        return back()->with('success', 'Staff deleted successfully');
     }
 
 

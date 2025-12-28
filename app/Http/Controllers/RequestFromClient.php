@@ -11,22 +11,23 @@ use App\Models\warehouses;
 class RequestFromClient extends Controller
 {
     public function page() {
-        $request = Notifications::whereIn('isAproved', ['pending', 'rejected', 'approved'])->latest()->get();
+
+        $request = Notifications::whereIn('isAproved', ['pending', 'rejected', 'approved'])->paginate(10);
         return view('admin.request', ['title' => 'IMS | Request', 'requests' => $request]);
     }
 
     public function rejectedPage() {
-        $rejectedRequest = Notifications::where('isAproved', 'rejected')->latest()->get();
+        $rejectedRequest = Notifications::where('isAproved', 'rejected')->paginate(10);
         return view('admin.rejectedRequest', ['title' => 'IMS | Request Rejected', 'requests' => $rejectedRequest]);
     }
 
     public function approvedPage() {
-        $approvedRequest = Notifications::where('isAproved', 'approved')->latest()->get();
+        $approvedRequest = Notifications::where('isAproved', 'approved')->paginate(10);
         return view('admin.approvedRequest', ['title' => 'IMS | Request Approved', 'requests' => $approvedRequest]);
     }
 
     public function pendingPage() {
-        $pendingRequest = Notifications::where('isAproved', 'pending')->latest()->get();
+        $pendingRequest = Notifications::where('isAproved', 'pending')->paginate(10);
         return view('admin.pendingRequest', ['title' => 'IMS | Request Pending', 'requests' => $pendingRequest]);
     }
 

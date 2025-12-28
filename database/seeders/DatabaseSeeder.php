@@ -59,5 +59,14 @@ class DatabaseSeeder extends Seeder
             'isClient' => true
         ]);
 
+        User::factory()->create([
+            'username' => 'gokil',
+            'name' => 'staff',
+            'phone' => '085135825923',
+            'role' => 'staff',
+            'password' => Hash::make('password'),
+            'isClient' => false,
+            'warehouse_id' => warehouses::inRandomOrder()->first()->id
+        ]);
     }
 }
