@@ -503,7 +503,7 @@
     <section class="cta">
         <h3>Siap Tingkatkan Efisiensi Bisnis Anda?</h3>
         <p>Mulai gunakan IMS hari ini dan rasakan perbedaannya.</p>
-        <a href="/client/login" class="btn">Bergabung Sekarang</a>
+        <a href="client/login" class="btn">Bergabung Sekarang</a>
     </section>
 
     <footer id="contact">

@@ -29,6 +29,8 @@ Route::get('/back-office/login' , [UserController::class, 'page']);
 Route::get('/client/login', [UserController::class, 'clientPage']);
 Route::get('/client/regist', [UserController::class, 'clientRegistPage']);
 
+
+
 Route::post('/regist',[UserController::class, 'clientRegist']);
 
 Route::post('/login/client', [UserController::class, 'login']);

@@ -27,7 +27,7 @@
             <span class="icon"><i class="mdi mdi-chevron-down"></i></span>
           </a>
           <div class="navbar-dropdown md:text-black">
-            <a href="/proffile" class="navbar-item">
+            <a href="proffile" class="navbar-item">
               <span class="icon"><i class="mdi mdi-account"></i></span>
               <span>My Profile</span>
             </a>
@@ -43,7 +43,7 @@
           </div>
         </div>
 
-        <form action="/logout" method="POST">
+        <form action="logout" method="POST">
             @csrf
             <button title="Log out" class="navbar-item desktop-icon-only">
                 <span class="icon"><i class="mdi mdi-logout"></i></span>
@@ -64,13 +64,13 @@
       <p class="menu-label">General</p>
       <ul class="menu-list">
         <li class="{{ request()->is('client/dashboard') ? 'active' : '' }}">
-          <a href="/client/dashboard">
+          <a href="client/dashboard">
             <span class="icon"><i class="mdi mdi-monitor"></i></span>
             <span class="menu-item-label">Dashboard</span>
           </a>
         </li>
         <li class="{{ request()->is('client/notifications') ? 'active' : '' }}">
-            <a href="/client/notifications">
+            <a href="client/notifications">
                 <span class="icon"><svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M15.133 10.632v-1.8a5.407 5.407 0 0 0-4.154-5.262.955.955 0 0 0 .021-.106V1.1a1 1 0 0 0-2 0v2.364a.944.944 0 0 0 .021.106 5.406 5.406 0 0 0-4.154 5.262v1.8C4.867 13.018 3 13.614 3 14.807 3 15.4 3 16 3.538 16h12.924C17 16 17 15.4 17 14.807c0-1.193-1.867-1.789-1.867-4.175Zm-13.267-.8a1 1 0 0 1-1-1 9.424 9.424 0 0 1 2.517-6.39A1.001 1.001 0 1 1 4.854 3.8a7.431 7.431 0 0 0-1.988 5.037 1 1 0 0 1-1 .995Zm16.268 0a1 1 0 0 1-1-1A7.431 7.431 0 0 0 15.146 3.8a1 1 0 0 1 1.471-1.354 9.425 9.425 0 0 1 2.517 6.391 1 1 0 0 1-1 .995ZM6.823 17a3.453 3.453 0 0 0 6.354 0H6.823Z"></path>
                 </svg></span>
@@ -88,12 +88,12 @@
             </a>
             <ul>
               <li>
-                <a href="/client/request/stockin">
+                <a href="client/request/stockin">
                   <span>Stock In</span>
                 </a>
               </li>
               <li>
-                <a href="/client/request/stockout">
+                <a href="client/request/stockout">
                   <span>Stock Out</span>
                 </a>
               </li>
@@ -107,19 +107,19 @@
             </a>
             <ul>
               <li>
-                <a href="/client/history/request">
+                <a href="client/history/request">
                   <span>Request</span>
                 </a>
               </li>
               <li>
-                <a href="/client/history/transaction">
+                <a href="client/history/transaction">
                   <span>Transaction</span>
                 </a>
               </li>
             </ul>
           </li>
          <li class="{{ request()->is('client/transaction') ? 'active' : '' }}">
-          <a href="/client/transaction">
+          <a href="client/transaction">
             <span class="icon"><i class="mdi mdi-cash"></i></span>
             <span class="menu-item-label">Transaction</span>
           </a>
@@ -128,7 +128,7 @@
       <p class="menu-label">User</p>
       <ul class="menu-list">
         <li class="{{ request()->is('proffile') ? 'active' : '' }}">
-            <a href="/proffile">
+            <a href="proffile">
                 <span class="icon"><i class="mdi mdi-account"></i></span>
                 <span class="menu-item-label">Proffile</span>
             </a>

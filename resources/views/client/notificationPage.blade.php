@@ -49,7 +49,7 @@
                         </td>
                         <td class="actions-cell">
                         <a onClick="setRead({{ $n->id }})"
-                            href="/request/detail/{{ $n->uuid }}">
+                            href="request/detail/{{ $n->uuid }}">
                             <button class="button small green --jb-modal"  type="button">
                                 <span class="icon"><i class="mdi mdi-eye"></i></span>
                               </button>

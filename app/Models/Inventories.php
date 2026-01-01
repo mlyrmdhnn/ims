@@ -23,7 +23,6 @@ class Inventories extends Model
         return $this->belongsTo(Items::class);
     }
 
-    // AMBIL inventory_units BERDASARKAN item_id
     public function inventoryUnits()
     {
         return $this->hasMany(Inventory_units::class, 'item_id', 'item_id');

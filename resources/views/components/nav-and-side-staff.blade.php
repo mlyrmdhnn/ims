@@ -27,7 +27,7 @@
             <span class="icon"><i class="mdi mdi-chevron-down"></i></span>
           </a>
           <div class="navbar-dropdown md:text-black">
-            <a href="/proffile" class="navbar-item">
+            <a href="proffile" class="navbar-item">
               <span class="icon"><i class="mdi mdi-account"></i></span>
               <span>My Profile</span>
             </a>
@@ -43,7 +43,7 @@
           </div>
         </div>
 
-        <form action="/logout" method="POST">
+        <form action="logout" method="POST">
             @csrf
             <button title="Log out" class="navbar-item desktop-icon-only">
                 <span class="icon"><i class="mdi mdi-logout"></i></span>
@@ -64,7 +64,7 @@
       <p class="menu-label">General</p>
       <ul class="menu-list">
         <li class="{{ request()->is('staff/inbox') ? 'active' : '' }}">
-            <a href="/staff/inbox">
+            <a href="staff/inbox">
                 <span class="icon"><span class="w-5 h-5 mdi mdi-inbox"></span></span>
                 <span class="menu-item-label">Inbox <span class="text-red-500">{{ $totalNotif > 9 ? '9+' : ($totalNotif > 0 ? $totalNotif : '') }}</span></span>
             </a>
@@ -80,12 +80,12 @@
             </a>
             <ul>
               <li>
-                <a href="/client/request/stockin">
+                <a href="client/request/stockin">
                   <span>Stock In</span>
                 </a>
               </li>
               <li>
-                <a href="/client/request/stockout">
+                <a href="client/request/stockout">
                   <span>Stock Out</span>
                 </a>
               </li>
@@ -99,19 +99,19 @@
             </a>
             <ul>
               <li>
-                <a href="/client/history/request">
+                <a href="client/history/request">
                   <span>Request</span>
                 </a>
               </li>
               <li>
-                <a href="/client/history/transaction">
+                <a href="client/history/transaction">
                   <span>Transaction</span>
                 </a>
               </li>
             </ul>
           </li>
          <li class="{{ request()->is('client/transaction') ? 'active' : '' }}">
-          <a href="/client/transaction">
+          <a href="client/transaction">
             <span class="icon"><i class="mdi mdi-cash"></i></span>
             <span class="menu-item-label">Transaction</span>
           </a>
@@ -119,7 +119,7 @@
 
 
         <li class="{{ request()->is('staff/items') ? 'active' : '' }}">
-            <a href="/staff/items">
+            <a href="staff/items">
               <span class="icon"><i class="mdi mdi-invoice-list-outline"></i></span>
               <span class="menu-item-label">Items</span>
             </a>
@@ -129,7 +129,7 @@
       <p class="menu-label">User</p>
       <ul class="menu-list">
         <li class="{{ request()->is('proffile') ? 'active' : '' }}">
-            <a href="/proffile">
+            <a href="proffile">
                 <span class="icon"><i class="mdi mdi-account"></i></span>
                 <span class="menu-item-label">Proffile</span>
             </a>

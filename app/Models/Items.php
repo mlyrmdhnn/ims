@@ -19,9 +19,4 @@ class Items extends Model
     }
 
 
-    // public function inventoryUnits() :HasMany
-    // {
-    //     return $this->hasMany(Inventory_units::class, 'item_id');
-    // }
-
 }

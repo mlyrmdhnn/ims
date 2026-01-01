@@ -34,7 +34,7 @@
                         Work since: {{ $s->created_at->format('d M Y') }}
                     </p>
                     <p class="staff-item">
-                        <a href="/staff/delete/{{ $s->id }}" class="button red">Delete User</a>
+                        <a href="staff/delete/{{ $s->id }}" class="button red">Delete User</a>
                     </p>
                 </div>
             @endforeach

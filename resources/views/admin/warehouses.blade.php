@@ -48,8 +48,8 @@
                     </div>
                     <span class="icon widget-icon">
                         <div>
-                            <h1 class="text-amber-500"><a href="/warehouse/{{ $warehouse->id }}/edit">Update</a></h1>
-                            <h1 class="text-red-500"><a href="/warehouse/delete/{{ $warehouse->id }}">Delete</a></h1>
+                            <h1 class="text-amber-500"><a href="warehouse/{{ $warehouse->id }}/edit">Update</a></h1>
+                            <h1 class="text-red-500"><a href="warehouse/delete/{{ $warehouse->id }}">Delete</a></h1>
                         </div>
                     </span>
                   </div>

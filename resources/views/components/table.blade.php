@@ -36,7 +36,7 @@
                       <small class="text-gray-500" title="Oct 25, 2021">{{ $request->created_at }}</small>
                     </td>
                     <td class="actions-cell">
-                    <a href="/request/detail/{{ $request->uuid }}">
+                    <a href="request/detail/{{ $request->uuid }}">
                         <button class="button small green --jb-modal"  type="button">
                             <span class="icon"><i class="mdi mdi-eye"></i></span>
                           </button>

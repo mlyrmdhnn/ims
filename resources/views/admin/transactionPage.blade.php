@@ -46,7 +46,7 @@
                           <small class="text-gray-500" title="Oct 25, 2021">{{ $transaction->created_at }}</small>
                         </td>
                         <td class="actions-cell">
-                        <a href="/detail/transaction/{{ $transaction->transaction_no }}">
+                        <a href="detail/transaction/{{ $transaction->transaction_no }}">
                             <button class="button small green --jb-modal"  type="button">
                                 <span class="icon"><i class="mdi mdi-eye"></i></span>
                               </button>

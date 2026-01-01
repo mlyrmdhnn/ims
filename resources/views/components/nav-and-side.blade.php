@@ -25,7 +25,7 @@
             <span class="icon"><i class="mdi mdi-chevron-down"></i></span>
           </a>
           <div class="navbar-dropdown md:text-black">
-            <a href="/proffile" class="navbar-item">
+            <a href="proffile" class="navbar-item">
               <span class="icon"><i class="mdi mdi-account"></i></span>
               <span>My Profile</span>
             </a>
@@ -42,7 +42,7 @@
           </div>
         </div>
 
-        <form action="/logout" method="POST">
+        <form action="logout" method="POST">
             @csrf
             <button title="Log out" class="navbar-item desktop-icon-only">
                 <span class="icon"><i class="mdi mdi-logout"></i></span>
@@ -63,13 +63,13 @@
       <p class="menu-label">General</p>
       <ul class="menu-list">
         <li class="{{ request()->is('dashboard') ? 'active' : '' }}">
-          <a href="/dashboard">
+          <a href="dashboard">
             <span class="icon"><i class="mdi mdi-desktop-mac"></i></span>
             <span class="menu-item-label">Dashboard</span>
           </a>
         </li>
         <li class="{{ request()->is('inbox') ? 'active' : '' }}">
-            <a href="/inbox ">
+            <a href="inbox ">
                 <span class="icon"><i class="w-5 h-5 mdi mdi-inbox"></i></span>
                 <span class="menu-item-label">Inbox<span class="text-red-500">
                     {{ $adminNotification > 9 ? '9+' : ($adminNotification > 0 ? $adminNotification : '') }}
@@ -80,25 +80,25 @@
       <p class="menu-label">Examples</p>
       <ul class="menu-list">
         <li class="{{ request()->is('request') ? 'active' : '' }}">
-          <a href="/request">
+          <a href="request">
             <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
             <span class="menu-item-label">Request <span class="text-red-500">{{ $total > 9 ? '9+' : ($total > 0 ? $total : '') }}</span></span>
           </a>
         </li>
         <li class="{{ request()->is('transaction') ? 'active' : '' }}">
-          <a href="/transaction">
+          <a href="transaction">
             <span class="icon"><i class="mdi mdi-cash"></i></span>
             <span class="menu-item-label">Transaction</span>
           </a>
         </li>
         <li class="{{ request()->is('create/item') ? 'active' : '' }}">
-          <a href="/create/item">
+          <a href="create/item">
             <span class="icon"><i class="mdi mdi-pencil-outline"></i></span>
             <span class="menu-item-label">Create Item</span>
           </a>
         </li>
         <li class="{{ request()->is('warehouses') ? 'active' : '' }}">
-          <a href="/warehouses">
+          <a href="warehouses">
             <span class="icon"><i class="mdi mdi-warehouse"></i></span>
             <span class="menu-item-label">Warehouses</span>
           </a>
@@ -126,19 +126,19 @@
       <p class="menu-label">User</p>
       <ul class="menu-list">
         <li class="{{ request()->is('create/staff') ? 'active' : '' }}">
-            <a href="/create/staff">
+            <a href="create/staff">
                 <span class="icon"><i class="mdi mdi-account-plus"></i></span>
                 <span class="menu-item-label">Create Staff</span>
             </a>
         </li>
         <li class="{{ request()->is('staff') ? 'active' : '' }}">
-            <a href="/staff">
+            <a href="staff">
                 <span class="icon"><i class="mdi mdi-account-group"></i></span>
                 <span class="menu-item-label">Staff</span>
             </a>
         </li>
         <li class="{{ request()->is('proffile') ? 'active' : '' }}">
-            <a href="/proffile">
+            <a href="proffile">
                 <span class="icon"><i class="mdi mdi-account"></i></span>
                 <span class="menu-item-label">Proffile</span>
             </a>
